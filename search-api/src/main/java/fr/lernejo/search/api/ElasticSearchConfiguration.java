@@ -14,16 +14,27 @@ import org.springframework.context.annotation.Configuration;
 public class ElasticSearchConfiguration {
 
     @Value("${elasticsearch.host:localhost}")
-    private String host;
+    private final String host;
 
     @Value("${elasticsearch.port:9200}")
-    private int port;
+    private final int port;
 
     @Value("${elasticsearch.username:elastic}")
-    private String username;
+    private final String username;
 
     @Value("${elasticsearch.password:admin}")
-    private String password;
+    private final String password;
+
+    public ElasticSearchConfiguration(
+        @Value("${elasticsearch.host:localhost}") String host,
+        @Value("${elasticsearch.port:9200}") int port,
+        @Value("${elasticsearch.username:elastic}") String username,
+        @Value("${elasticsearch.password:admin}") String password) {
+        this.host = host;
+        this.port = port;
+        this.username = username;
+        this.password = password;
+    }
 
     @Bean
     public RestHighLevelClient client() {

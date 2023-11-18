@@ -1,5 +1,6 @@
 package fr.lernejo.fileinjector;
 
+import fr.lernejo.search.api.Launcher;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
